@@ -1,3 +1,3 @@
 # VRCKinectFaceTracking
 
-Kinect v1 module for VRCFT.
+Kinect v1 face tracking module for VRCFT.
