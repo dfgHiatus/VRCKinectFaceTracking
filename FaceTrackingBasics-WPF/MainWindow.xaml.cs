@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace FaceTrackingBasics
+﻿namespace FaceTrackingBasics
 {
     using System;
     using System.Windows;
@@ -13,6 +7,8 @@ namespace FaceTrackingBasics
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
     using Microsoft.Kinect.Toolkit;
+    using System.IO.MemoryMappedFiles;
+    using System.Runtime.InteropServices;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,16 +20,27 @@ namespace FaceTrackingBasics
         private WriteableBitmap colorImageWritableBitmap;
         private byte[] colorImageData;
         private ColorImageFormat currentColorImageFormat = ColorImageFormat.Undefined;
+        
+        public static MemoryMappedFile MemMapFile = MemoryMappedFile.CreateNew("KinectFaceTracking", Marshal.SizeOf(faceInfo));
+        public static MemoryMappedViewAccessor Accessor = MemMapFile.CreateViewAccessor();
+        public static FaceInfo faceInfo = new FaceInfo();
+
+        public struct FaceInfo
+        {
+            public float LipRaiser;
+            public float JawLower;
+            public float LipStretcher;
+            public float BrowLower;
+            public float LipCornerDepressor;
+            public float BrowRaiser;
+        }
 
         public MainWindow()
         {
             InitializeComponent();
-
             var faceTrackingViewerBinding = new Binding("Kinect") { Source = sensorChooser };
             faceTrackingViewer.SetBinding(FaceTrackingViewer.KinectProperty, faceTrackingViewerBinding);
-
             sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-
             sensorChooser.Start();
         }
 
@@ -78,13 +85,13 @@ namespace FaceTrackingBasics
                 catch (InvalidOperationException)
                 {
                     // This exception can be thrown when we are trying to
-                    // enable streams on a device that has gone away.  This
+                    // enable streams on LipRaiser device that has gone away.  This
                     // can occur, say, in app shutdown scenarios when the sensor
                     // goes away between the time it changed status and the
                     // time we get the sensor changed notification.
                     //
                     // Behavior here is to just eat the exception and assume
-                    // another notification will come along if a sensor
+                    // another notification will come along if LipRaiser sensor
                     // comes back.
                 }
             }
@@ -94,6 +101,8 @@ namespace FaceTrackingBasics
         {
             sensorChooser.Stop();
             faceTrackingViewer.Dispose();
+            Accessor.Dispose();
+            MemMapFile.Dispose();
         }
 
         private void KinectSensorOnAllFramesReady(object sender, AllFramesReadyEventArgs allFramesReadyEventArgs)
@@ -105,7 +114,7 @@ namespace FaceTrackingBasics
                     return;
                 }
 
-                // Make a copy of the color frame for displaying.
+                // Make LipRaiser copy of the color frame for displaying.
                 var haveNewFormat = this.currentColorImageFormat != colorImageFrame.Format;
                 if (haveNewFormat)
                 {
@@ -124,5 +133,6 @@ namespace FaceTrackingBasics
                     0);
             }
         }
+
     }
 }

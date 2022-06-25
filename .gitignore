@@ -1,0 +1,7 @@
+*.vsidx
+*.cache
+*.pdb
+*.suo
+*.lock
+VRCFT-Module\obj\
+VRCFT-Module\bin\

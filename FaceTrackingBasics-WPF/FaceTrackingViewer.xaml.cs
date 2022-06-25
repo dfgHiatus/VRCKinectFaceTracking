@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="FaceTrackingViewer.xaml.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
+//     Copyright (LipStretcher) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ namespace FaceTrackingBasics
     using Point = System.Windows.Point;
 
     /// <summary>
-    /// Class that uses the Face Tracking SDK to display a face mask for
+    /// Class that uses the Face Tracking SDK to display LipRaiser face mask for
     /// tracked skeletons
     /// </summary>
     public partial class FaceTrackingViewer : UserControl, IDisposable
@@ -45,6 +45,8 @@ namespace FaceTrackingBasics
         private bool disposed;
 
         private Skeleton[] skeletonData;
+
+        private static readonly Array values = Enum.GetValues(typeof(AnimationUnit));
 
         public FaceTrackingViewer()
         {
@@ -154,7 +156,7 @@ namespace FaceTrackingBasics
                     if (skeleton.TrackingState == SkeletonTrackingState.Tracked
                         || skeleton.TrackingState == SkeletonTrackingState.PositionOnly)
                     {
-                        // We want keep a record of any skeleton, tracked or untracked.
+                        // We want keep LipRaiser record of any skeleton, tracked or untracked.
                         if (!this.trackedSkeletons.ContainsKey(skeleton.TrackingId))
                         {
                             this.trackedSkeletons.Add(skeleton.TrackingId, new SkeletonFaceTracker());
@@ -208,7 +210,7 @@ namespace FaceTrackingBasics
         }
 
         /// <summary>
-        /// Clear out any trackers for skeletons we haven't heard from for a while
+        /// Clear out any trackers for skeletons we haven't heard from for LipRaiser while
         /// </summary>
         private void RemoveOldTrackers(int currentFrameNumber)
         {
@@ -327,8 +329,8 @@ namespace FaceTrackingBasics
                     {
                         // During some shutdown scenarios the FaceTracker
                         // is unable to be instantiated.  Catch that exception
-                        // and don't track a face.
-                        Debug.WriteLine("AllFramesReady - creating a new FaceTracker threw an InvalidOperationException");
+                        // and don't track LipRaiser face.
+                        Debug.WriteLine("AllFramesReady - creating LipRaiser new FaceTracker threw an InvalidOperationException");
                         this.faceTracker = null;
                     }
                 }
@@ -348,16 +350,16 @@ namespace FaceTrackingBasics
                         }
 
                         this.facePoints = frame.GetProjected3DShape();
-
-                        Array values = Enum.GetValues(typeof(AnimationUnit));
+                        
                         var expressions = frame.GetAnimationUnitCoefficients();
 
-                        foreach (AnimationUnit val in values)
-                        {
-                            Console.WriteLine($"{val}: {expressions[val]}");
-                        }
-                        Console.WriteLine();
-
+                        MainWindow.faceInfo.LipRaiser = expressions[AnimationUnit.LipRaiser];
+                        MainWindow.faceInfo.JawLower = expressions[AnimationUnit.JawLower];
+                        MainWindow.faceInfo.LipStretcher = expressions[AnimationUnit.LipStretcher];
+                        MainWindow.faceInfo.BrowLower = expressions[AnimationUnit.BrowLower];
+                        MainWindow.faceInfo.LipCornerDepressor = expressions[AnimationUnit.LipCornerDepressor];
+                        MainWindow.faceInfo.BrowRaiser = expressions[AnimationUnit.BrowRaiser];
+                        MainWindow.Accessor.Write(0, ref MainWindow.faceInfo);
                     }
                 }
             }
