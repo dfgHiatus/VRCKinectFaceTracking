@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceTrackingBasics-WPF", "FaceTrackingBasics-WPF.csproj", "{8FB2DEA6-9900-4FC5-87E4-B54188F62884}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceBasics_v1", "FaceBasics_v1.csproj", "{8FB2DEA6-9900-4FC5-87E4-B54188F62884}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "..\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit.FaceTracking", "..\Microsoft.Kinect.Toolkit.FaceTracking\Microsoft.Kinect.Toolkit.FaceTracking.csproj", "{1BCF9CEE-DF01-430E-B49D-41A9A88963EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectModule", "..\VRCFT-Module\KinectModule.csproj", "{EFE204F1-478B-49F9-A166-FC3E3A42301D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectModule_v1", "..\VRCFT-Module\KinectModule_v1.csproj", "{EFE204F1-478B-49F9-A166-FC3E3A42301D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaceBasics_v2", "..\FaceBasics_v2\FaceBasics_v2.csproj", "{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectModule_v2", "..\KinectModule_v2\KinectModule_v2.csproj", "{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,30 @@ Global
 		{EFE204F1-478B-49F9-A166-FC3E3A42301D}.Release|Win32.Build.0 = Release|Any CPU
 		{EFE204F1-478B-49F9-A166-FC3E3A42301D}.Release|x64.ActiveCfg = Release|Any CPU
 		{EFE204F1-478B-49F9-A166-FC3E3A42301D}.Release|x64.Build.0 = Release|Any CPU
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|Any CPU.Build.0 = Debug|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|Win32.ActiveCfg = Debug|x86
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|Win32.Build.0 = Debug|x86
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|x64.ActiveCfg = Debug|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Debug|x64.Build.0 = Debug|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|Any CPU.ActiveCfg = Release|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|Any CPU.Build.0 = Release|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|Win32.ActiveCfg = Release|x86
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|Win32.Build.0 = Release|x86
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|x64.ActiveCfg = Release|x64
+		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|x64.Build.0 = Release|x64
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|Win32.Build.0 = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Debug|x64.Build.0 = Debug|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|Win32.ActiveCfg = Release|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|Win32.Build.0 = Release|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|x64.ActiveCfg = Release|Any CPU
+		{A54D379F-66F6-4535-A2D5-250B4A0A1C6A}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

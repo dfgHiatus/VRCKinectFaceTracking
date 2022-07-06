@@ -5,3 +5,13 @@
 *.lock
 VRCFT-Module\obj\
 VRCFT-Module\bin\
+FaceBasics_v2\bin\
+FaceBasics_v2\obj\
+*.model
+*.bin
+*.resources
+*.exe
+*.CopyComplete
+*.cs
+*.resx
+*.settings

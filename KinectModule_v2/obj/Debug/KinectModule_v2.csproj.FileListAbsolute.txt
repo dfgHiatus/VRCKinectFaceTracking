@@ -1,0 +1,8 @@
+D:\Misc\VRCKinect\KinectModule_v2\bin\Debug\KinectModule_v2.dll
+D:\Misc\VRCKinect\KinectModule_v2\bin\Debug\KinectModule_v2.pdb
+D:\Misc\VRCKinect\KinectModule_v2\bin\Debug\VRCFaceTracking.exe
+D:\Misc\VRCKinect\KinectModule_v2\obj\Debug\KinectModule_v2.csproj.AssemblyReference.cache
+D:\Misc\VRCKinect\KinectModule_v2\obj\Debug\KinectModule_v2.csproj.CoreCompileInputs.cache
+D:\Misc\VRCKinect\KinectModule_v2\obj\Debug\KinectModule_v2.csproj.CopyComplete
+D:\Misc\VRCKinect\KinectModule_v2\obj\Debug\KinectModule_v2.dll
+D:\Misc\VRCKinect\KinectModule_v2\obj\Debug\KinectModule_v2.pdb
